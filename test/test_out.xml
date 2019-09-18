@@ -1,0 +1,30 @@
+<object>
+  <array name="fibs">
+    <number>0</number>
+    <number>1</number>
+    <number>1</number>
+    <number>2</number>
+    <number>3</number>
+    <string>fibs</string>
+    <boolean>True</boolean>
+  </array>
+</object>
+<object>
+  <array name="fibs">
+    <number>0</number>
+    <number>1</number>
+    <number>1</number>
+    <number>2</number>
+    <number>3</number>
+    <string>fibs</string>
+    <boolean>True</boolean>
+  </array>
+</object>
+<array>
+  <number>1</number>
+  <string>test</string>
+</array>
+<array>
+  <number>1</number>
+  <string>test</string>
+</array>
