@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
     try:
         json_file_path = raw_input("Input JSON File Path : ")
-        xml_file_path = raw_input("Input XML Output Path : ")
+        xml_file_path = raw_input("Output XML File  Path : ")
         if len(json_file_path) == 0 or len(xml_file_path) == 0:
             raise
         # json_file_path = '/Users/neeleshbatham/Office/edp-conn/json2xml/test/test.json'
