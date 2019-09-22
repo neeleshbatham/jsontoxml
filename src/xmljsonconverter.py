@@ -3,7 +3,6 @@
 import json
 import logging
 from lxml import etree
-# from xml import etree as etree
 
 logger = logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("XMLJSON")
@@ -23,9 +22,9 @@ class XMLJSONConverter(object):
     def _tostr(self, tree):
         try:
             if tree is not None:
-                xml_str = etree.tostring(tree, encoding='utf8', method='xml', pretty_print=True)
-                print (xml_str)
-                return xml_str
+                xml_str = etree.tostring(tree, encoding='utf8', method='xml', pretty_print=True).decode()
+                print (str(xml_str))
+                return str(xml_str)
         except Exception as e:
             logger.error("Error while converting XML str".format(e))
 
@@ -78,7 +77,7 @@ class XMLJSONConverter(object):
                         child.text = str(each)
                         root.append(child)
 
-                    elif type(each) is unicode:
+                    elif type(each) is str:
                         child = self._process_string(each)
                         child.text = str(each)
                         root.append(child)
@@ -112,7 +111,7 @@ class XMLJSONConverter(object):
                         child_root.attrib["name"] = k
                         root.append(child_root)
 
-                    elif type(v) is unicode:
+                    elif type(v) is str:
                         child_root = self._process_string(v)
                         child_root.attrib["name"] = k
                         root.append(child_root)
@@ -153,7 +152,7 @@ class XMLJSONConverter(object):
             elif type(data) is int:
                 return self._tostr(self._process_int(data))
 
-            elif type(data) is unicode:
+            elif type(data) is str:
                 return self._tostr(self._process_string(data))
 
             elif type(data) is bool:
@@ -200,10 +199,11 @@ class XMLJSONConverter(object):
 if __name__ == "__main__":
 
     try:
-        json_file_path = raw_input("Input JSON File Path : ")
-        xml_file_path = raw_input("Output XML File  Path : ")
+        json_file_path = input("Input JSON File Path : ")
+        xml_file_path = input("Output XML File  Path : ")
         if len(json_file_path) == 0 or len(xml_file_path) == 0:
             raise
+
         # json_file_path = '/Users/neeleshbatham/Office/edp-conn/json2xml/test/test.json'
         # xml_file_path= '/Users/neeleshbatham/Office/edp-conn/json2xml/test/test_out.xml'
 
